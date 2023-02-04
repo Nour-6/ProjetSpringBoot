@@ -2,6 +2,8 @@ package com.esprit.alternance.projet_1.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Set;
 
 @Entity
 public class Etudiant implements Serializable {
@@ -18,4 +20,13 @@ public class Etudiant implements Serializable {
 
     @Enumerated(EnumType.STRING)
     private Option option;
+
+    @ManyToOne
+    private Department department;
+
+    @OneToMany(mappedBy = "etudiant")
+    private Set<Contrat> contrats;
+
+    @ManyToMany(cascade = CascadeType.ALL,mappedBy ="etudiants")
+    private Set<Equipe> equipes;
 }
