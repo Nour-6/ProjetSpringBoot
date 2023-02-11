@@ -18,9 +18,5 @@ public interface IEtudiantService {
 
      void deleteEtudiant(Integer idEtudiant);
 
-    //Récupérer les étudiants d’un département donné
-    public List<Etudiant> findByDepartmentIdDepart(Integer IdDepart);
 
-    //Récupérer les étudiants dont l’équipe a un niveau SENIOR
-     List<Etudiant> findByEquipesNiveau(Niveau.Senior Senior);
 }
