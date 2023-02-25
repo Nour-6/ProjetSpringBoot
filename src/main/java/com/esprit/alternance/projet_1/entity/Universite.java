@@ -23,6 +23,6 @@ public class Universite implements Serializable {
     private Integer idUniv;
     private String nomUniv;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private Set<Department> departments;
 }

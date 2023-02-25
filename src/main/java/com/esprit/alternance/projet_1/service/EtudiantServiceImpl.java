@@ -28,6 +28,15 @@ public class EtudiantServiceImpl implements IEtudiantService{
     @Override
     public void deleteEtudiant(Integer idEtudiant) {etudiantRepository.deleteById(idEtudiant);}
 
+    @Override
+    public List<Etudiant> findByDepartmentIdDepart(Integer IdDepart) {
+        return null;
+    }
+
+    @Override
+    public List<Etudiant> findByEquipesNiveau(Niveau nv) {
+        return null;
+    }
 
 
 }
