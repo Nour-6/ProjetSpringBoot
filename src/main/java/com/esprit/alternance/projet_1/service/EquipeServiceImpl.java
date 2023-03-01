@@ -1,6 +1,5 @@
 package com.esprit.alternance.projet_1.service;
 
-import com.esprit.alternance.projet_1.entity.DetailEquipe;
 import com.esprit.alternance.projet_1.entity.Equipe;
 import com.esprit.alternance.projet_1.repository.EquipeRepository;
 import lombok.AllArgsConstructor;

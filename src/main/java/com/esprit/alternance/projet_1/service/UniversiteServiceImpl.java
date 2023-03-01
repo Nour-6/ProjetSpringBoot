@@ -1,9 +1,6 @@
 package com.esprit.alternance.projet_1.service;
 
-import com.esprit.alternance.projet_1.entity.Etudiant;
-import com.esprit.alternance.projet_1.entity.Niveau;
 import com.esprit.alternance.projet_1.entity.Universite;
-import com.esprit.alternance.projet_1.repository.EtudiantRepository;
 import com.esprit.alternance.projet_1.repository.UniversiteRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

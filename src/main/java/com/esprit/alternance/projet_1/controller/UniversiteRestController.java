@@ -32,9 +32,8 @@ public class UniversiteRestController {
     // http://localhost:8089/kaddem/universite/add-universite
     @Operation(description = "adding a university")
     @PostMapping("/add-universite")
-    public Universite addUniversite(@RequestBody Universite u) {
-        Universite universite = universiteService.addUniversite(u);
-        return universite;
+    public Universite addUniversite(@RequestBody Universite universite){
+        return universiteService.addUniversite(universite);
     }
     // http://localhost:8089/kaddem/universite/remove-universite/1
     @Operation(description = "deleting a university")

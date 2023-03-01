@@ -1,6 +1,7 @@
 package com.esprit.alternance.projet_1.configuration;
 
 
+
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Contact;
 import io.swagger.v3.oas.models.info.Info;

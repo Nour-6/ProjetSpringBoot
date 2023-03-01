@@ -3,8 +3,7 @@ package com.esprit.alternance.projet_1.service;
 import com.esprit.alternance.projet_1.entity.Department;
 import com.esprit.alternance.projet_1.entity.Etudiant;
 import com.esprit.alternance.projet_1.entity.Niveau;
-import com.esprit.alternance.projet_1.repository.DepartementRepository;
-import com.esprit.alternance.projet_1.repository.EquipeRepository;
+import com.esprit.alternance.projet_1.repository.DepartmentRepository;
 import com.esprit.alternance.projet_1.repository.EtudiantRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -16,7 +15,7 @@ import java.util.List;
 @Service
 public class EtudiantServiceImpl implements IEtudiantService{
     EtudiantRepository etudiantRepository;
-    DepartementRepository departmentRepository;
+    DepartmentRepository departmentRepository;
     @Override
     public List<Etudiant> retrieveAllEtudiants() {return etudiantRepository.findAll();}
 
@@ -33,7 +32,7 @@ public class EtudiantServiceImpl implements IEtudiantService{
     public void deleteEtudiant(Integer idEtudiant) {etudiantRepository.deleteById(idEtudiant);}
 
     @Override
-    public List<Etudiant> findByDepartmentIdDepart(Integer IdDepart) {
+    public List<Etudiant> findByDepartmentIdDepartment(Integer idDepartement) {
         return null;
     }
 

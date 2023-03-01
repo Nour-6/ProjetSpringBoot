@@ -8,17 +8,26 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Tag(name="Department Management")
 @RestController
 @AllArgsConstructor
 @RequestMapping("/department")
 public class DepartmentRestController {
-    private final IDepartmentService departmentService;
 
+    IDepartmentService DepartmentService;
+    // http://localhost:8089/kaddem/department/add-department
     @Operation(description = "adding a department")
     @PostMapping("/add-department")
-    public Department addDepartment(@RequestBody Department d) {
-        Department department = departmentService.addDepartment(d);
-        return department;
+    public Department addDepartment(@RequestBody Department department){
+        return DepartmentService.addDepartment(department);
     }
+    @GetMapping("/retrieve-all-departments")
+    public List<Department> getDepartments(){
+        List<Department> listDepartments = DepartmentService.retrieveAllDepartments();
+        return listDepartments;
+    }
+
+
 }
