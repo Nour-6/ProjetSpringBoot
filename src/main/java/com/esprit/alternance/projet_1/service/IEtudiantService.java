@@ -23,6 +23,7 @@ public interface IEtudiantService {
 
     //Récupérer les étudiants dont l’équipe a un niveau SENIOR
     List<Etudiant> findByEquipesNiveau(Niveau nv);
+    void asignEtudiantADepartment(Integer idDepartement, Integer idEtudiant);
 
 
 }

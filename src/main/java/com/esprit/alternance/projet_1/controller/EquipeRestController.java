@@ -1,16 +1,15 @@
 package com.esprit.alternance.projet_1.controller;
 
-import com.esprit.alternance.projet_1.entity.DetailEquipe;
 import com.esprit.alternance.projet_1.entity.Equipe;
-import com.esprit.alternance.projet_1.service.IDetailEquipeService;
 import com.esprit.alternance.projet_1.service.IEquipeService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Tag(name="Equipe Management")
 @RestController
-
 @AllArgsConstructor
 @RequestMapping("/equipe")
 public class EquipeRestController {

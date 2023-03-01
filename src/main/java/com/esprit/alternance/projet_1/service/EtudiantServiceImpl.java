@@ -1,18 +1,22 @@
 package com.esprit.alternance.projet_1.service;
 
+import com.esprit.alternance.projet_1.entity.Department;
 import com.esprit.alternance.projet_1.entity.Etudiant;
 import com.esprit.alternance.projet_1.entity.Niveau;
+import com.esprit.alternance.projet_1.repository.DepartementRepository;
 import com.esprit.alternance.projet_1.repository.EquipeRepository;
 import com.esprit.alternance.projet_1.repository.EtudiantRepository;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Slf4j
 @AllArgsConstructor
 @Service
 public class EtudiantServiceImpl implements IEtudiantService{
     EtudiantRepository etudiantRepository;
+    DepartementRepository departmentRepository;
     @Override
     public List<Etudiant> retrieveAllEtudiants() {return etudiantRepository.findAll();}
 
@@ -36,6 +40,19 @@ public class EtudiantServiceImpl implements IEtudiantService{
     @Override
     public List<Etudiant> findByEquipesNiveau(Niveau nv) {
         return null;
+    }
+    @Override
+    public void asignEtudiantADepartment(Integer idDepartement, Integer idEtudiant) {
+        Department department = departmentRepository.findDepartmentByIdDepartment(idDepartement);
+        Etudiant etudiant = etudiantRepository.findEtudiantByIdEtudiant(idEtudiant);
+        if(department != null && etudiant != null){
+            etudiant.setDepartment(department);
+            etudiantRepository.save(etudiant);
+        }
+        else
+            log.info("département ou étudiant inexistant");
+
+
     }
 
 

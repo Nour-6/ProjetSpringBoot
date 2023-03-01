@@ -19,8 +19,8 @@ import java.util.Set;
 public class Department implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idDepart",nullable = false)
-    private Integer idDepart ;
+    @Column(name = "idDepartment",nullable = false)
+    private Integer idDepartment ;
     @Column(name ="nomDepart")
     private String nomDepart;
 
