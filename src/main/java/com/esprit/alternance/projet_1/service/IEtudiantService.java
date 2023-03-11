@@ -16,6 +16,6 @@ public interface IEtudiantService {
     List<Etudiant> findByDepartmentIdDepartment(Integer idDepartement);
     List<Etudiant> findByEquipesNiveau(Niveau nv);
     void asignEtudiantADepartment(Integer idDepartement, Integer idEtudiant);
-
+    Etudiant addAndAssignEtudiantToEquipeAndContract(Etudiant e, Integer idContrat,Integer idEquipe);
 
 }

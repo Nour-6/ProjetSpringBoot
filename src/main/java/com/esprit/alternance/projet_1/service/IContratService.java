@@ -15,4 +15,5 @@ public interface IContratService {
     Contrat retrieveContrat (Integer idContrat);
 
      void deleteContrat(Integer idContrat);
+    void retrieveAndUpdateStatusContrat();
 }

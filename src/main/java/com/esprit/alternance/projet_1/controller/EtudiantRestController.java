@@ -36,5 +36,13 @@ public class EtudiantRestController {
         List<Etudiant> listEtudiants = etudiantService.retrieveAllEtudiants();
         return listEtudiants;
     }
+    @PostMapping("/asgin-etudiant-contrat-equipe/{idContrat}/{idEquipe}")
+    public Etudiant addAndAssignEtudiantToEquipeAndContract(
+            @RequestBody Etudiant etudiant,
+            @PathVariable("idContrat") Integer idContrat,
+            @PathVariable("idEquipe")  Integer idEquipe
+    ){
+        return etudiantService.addAndAssignEtudiantToEquipeAndContract(etudiant, idContrat, idEquipe);
+    }
 }
 
