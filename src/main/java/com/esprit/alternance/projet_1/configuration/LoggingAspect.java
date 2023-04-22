@@ -9,7 +9,22 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Slf4j
 public class LoggingAspect {
-    @AfterThrowing("execution(* com.esprit.alternance.projet_1.service.UniversiteServiceImpl.*(..))")
+    @Before("execution(* com.esprit.alternance.projet_1.service.EtudiantServiceImpl.*(..))")
+    public void logMethodEntry(JoinPoint joinPoint){
+        String name = joinPoint.getSignature().getName();
+        log.info("In method " + name + " : ");
+    }
+    @After("execution(* com.esprit.alternance.projet_1.service.EtudiantServiceImpl.*(..))")
+    public void logMethodExit(JoinPoint joinPoint){
+        String name = joinPoint.getSignature().getName();
+        log.info("After method " + name + " : ");
+    }
+    @AfterReturning("execution(* com.esprit.alternance.projet_1.service.EtudiantServiceImpl.*(..))")
+    public void logMethodExitAfterExecution(JoinPoint joinPoint){
+        String name = joinPoint.getSignature().getName();
+        log.info("Method executed successfully " + name + " : ");
+    }
+    @AfterThrowing("execution(* com.esprit.alternance.projet_1.service.EtudiantServiceImpl.*(..))")
     public void logMethodExitAfterThrowingException(JoinPoint joinPoint){
         String name = joinPoint.getSignature().getName();
         log.info("Execption thrown in method " + name + " : ");
