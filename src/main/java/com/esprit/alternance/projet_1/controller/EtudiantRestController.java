@@ -1,6 +1,5 @@
 package com.esprit.alternance.projet_1.controller;
 
-import com.esprit.alternance.projet_1.entity.Department;
 import com.esprit.alternance.projet_1.entity.Etudiant;
 import com.esprit.alternance.projet_1.service.IEtudiantService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -14,7 +13,8 @@ import java.util.List;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/etudiant")
-public class EtudiantRestController {
+public class
+EtudiantRestController {
     IEtudiantService etudiantService;
     @Operation(description = "Adding a student")
     @PostMapping("/add-etudiant")

@@ -7,6 +7,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -42,7 +44,7 @@ public class ContratServiceImpl implements IContratService{
 
     }
 
-    @Scheduled(cron = "* * * * * *" )
+    //@Scheduled(cron = "* * * * * *" )
     //@Scheduled(cron = "0 0 13 * * *" )
     public void retrieveAndUpdateStatusContrat() {
         Date date= new Date(System.currentTimeMillis() + 15 * 24 * 60 * 60 * 1000);
@@ -61,6 +63,24 @@ public class ContratServiceImpl implements IContratService{
             " va expirer le "+contrat.getDateFinContrat());
         }
     });
+    }
+
+    @Override
+    public float getChiffreAffaireEntreDeuxDate(Date startDate, Date endDate) {
+        float montant=0;
+        long nbrMois= ChronoUnit.MONTHS.between(LocalDate.parse(startDate.toString()).withDayOfMonth(1)
+        ,LocalDate.parse(endDate.toString()).withDayOfMonth(1));
+        List<Contrat> contrats=contratRepository.
+                findContratByDateDebtutContratAfterAndDateFinContratBeforeAndArchiveIsFalse(startDate,endDate);
+       for (int i=0;i<contrats.size();i++){
+           switch (contrats.get(i).getSpecialite()){
+               case IA:montant=montant+300;
+               case CLOUD:montant=montant+400;
+               case RESEAU:montant=montant+350;
+               case SECURITE:montant=montant+350;
+           }
+       }
+        return montant*nbrMois;
     }
 
 }

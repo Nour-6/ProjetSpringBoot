@@ -1,5 +1,6 @@
 package com.esprit.alternance.projet_1.service;
 
+import com.esprit.alternance.projet_1.entity.Department;
 import com.esprit.alternance.projet_1.entity.Universite;
 import com.esprit.alternance.projet_1.repository.UniversiteRepository;
 import lombok.AllArgsConstructor;
@@ -36,5 +37,12 @@ public class UniversiteServiceImpl implements IUniversiteService {
     public void deleteUniversite(Integer idUniversite) {
         universiteRepository.deleteById(idUniversite);
 
+    }
+
+    @Override
+    public List<Department> retrieveDepartementsByUniversite(Integer idUniversite) {
+        /*Universite u=universiteRepository.findById(idUniversite).get();
+        return u.getDepartments();*/
+        return universiteRepository.retrieveDepartementsByUniversite(idUniversite);
     }
 }

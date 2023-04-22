@@ -2,6 +2,7 @@ package com.esprit.alternance.projet_1.service;
 
 import com.esprit.alternance.projet_1.entity.Contrat;
 
+import java.util.Date;
 import java.util.List;
 
 public interface IContratService {
@@ -16,4 +17,6 @@ public interface IContratService {
 
      void deleteContrat(Integer idContrat);
     void retrieveAndUpdateStatusContrat();
+
+    float getChiffreAffaireEntreDeuxDate(Date startDate, Date endDate);
 }
